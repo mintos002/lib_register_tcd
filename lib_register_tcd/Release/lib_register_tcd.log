@@ -1,0 +1,14 @@
+﻿     Creando biblioteca C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\Release\lib_register_tcd.lib y objeto C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\Release\lib_register_tcd.exp
+lib_register_tcd.obj : error LNK2001: símbolo externo "private: char * __thiscall cv::String::allocate(unsigned int)" (?allocate@String@cv@@AAEPADI@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "private: void __thiscall cv::String::deallocate(void)" (?deallocate@String@cv@@AAEXXZ) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPAX@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: void __thiscall cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QAEXXZ) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "void __cdecl cv::read(class cv::FileNode const &,int &,int)" (?read@cv@@YAXABVFileNode@1@AAHH@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "void __cdecl cv::read(class cv::FileNode const &,float &,float)" (?read@cv@@YAXABVFileNode@1@AAMM@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "void __cdecl cv::read(class cv::FileNode const &,class cv::Mat &,class cv::Mat const &)" (?read@cv@@YAXABVFileNode@1@AAVMat@1@ABV31@@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: __thiscall cv::FileStorage::FileStorage(class cv::String const &,int,class cv::String const &)" (??0FileStorage@cv@@QAE@ABVString@1@H0@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: virtual __thiscall cv::FileStorage::~FileStorage(void)" (??1FileStorage@cv@@UAE@XZ) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: virtual bool __thiscall cv::FileStorage::isOpened(void)const " (?isOpened@FileStorage@cv@@UBE_NXZ) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: class cv::FileNode __thiscall cv::FileStorage::operator[](char const *)const " (??AFileStorage@cv@@QBE?AVFileNode@1@PBD@Z) sin resolver
+lib_register_tcd.obj : error LNK2001: símbolo externo "public: virtual void __thiscall cv::FileStorage::release(void)" (?release@FileStorage@cv@@UAEXXZ) sin resolver
+C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\Release\lib_register_tcd.dll : fatal error LNK1120: 12 externos sin resolver
