@@ -71,8 +71,18 @@ public:
 	*	- c_img: is the color image in 8 bits
 	*	- d_img: is the depth image in 16 bits
 	*/
-	void update(ushort* t_img, uchar* c_img, ushort* d_img, bool& registerImag, double& temp_min, double& temp_max, cv::Mat& warpedImage, cv::Mat& warpedDepth);
+	void update(const ushort* t_img, const uchar* c_img, const ushort* d_img, bool registerImag, const float& temp_min, const float& temp_max, int& width, int& height, uchar* warpedImage, ushort* warpedDepth);
 	
+	/**	@brief
+	*	This function will return a pointer to a 8 bit 3 chanel color image size memory space reserved
+	*/
+	uchar * ucharImagePtr();
+
+	/**	@brief
+	*	This function will return a pointer to a 16 bit 1 chanel image size memory space reserved
+	*/
+	ushort * ushortImagePtr();
+
 	/**	@brief 
 	*	This function will fill the pixels with 0 value with the content-aware found inside the kernelSize filter
 	*	- color: The image that needs to be filled
@@ -82,6 +92,18 @@ public:
 	*/
 	void refill(const cv::Mat& color, const double& radius, const int& kernelSize, cv::Mat& result);
 	void showImages();
+
+
+
+
+	void makeAlpha(const cv::Mat& src, const cv::Mat& mask, const float& opacity, cv::Mat& dst);
+	void doColorMap(const cv::Mat& image, cv::Mat& image_out, const float& min, const float& max, const float& opacity, const int& cvColormap);
+	void overlapImages(const cv::Mat &background, const cv::Mat &foreground, cv::Mat &output, cv::Point2i location = cv::Point2i(0,0), double opacity = 1.0);
+
+	void ushortToMat(const ushort * img, const int& width, const int& height, cv::Mat& out);
+	void ucharToMat(const uchar * img, const int& width, const int& height, cv::Mat& out);
+	ushort* matToUshort(const cv::Mat& image);
+	uchar* matToUchar(const cv::Mat& image);
 
 private:
 	// Input file data variables
@@ -99,12 +121,12 @@ private:
 
 	// Functions
 	void createRT(cv::Mat& R, cv::Mat& T, bool& invert, cv::Mat& RT);
-	void ushortToMat(ushort * img, int& width, int& height, cv::Mat& out);
-	void ucharToMat(uchar * img, int& width, int& height, cv::Mat& out);
-	void matToUshort(cv::Mat& image, ushort* out);
-	void matToUchar(cv::Mat& image, uchar* out);
+	
+
+	
 
 	void registerImages(cv::Mat& warpedImage, cv::Mat& warpedDepth);
+	
 
 	void errorHandler(int err, std::string msg = "There is an error");
 

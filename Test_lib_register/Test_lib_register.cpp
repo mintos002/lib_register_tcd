@@ -6,33 +6,33 @@
 #include "lib_register_tcd.h"
 
 
-uchar * matToUchar(cv::Mat image)
-{
-	int size = image.total() * image.elemSize();
-	uchar * bytes = new uchar[size];  // you will have to delete[] that later
-	std::memcpy(bytes, image.data, size * sizeof(uchar));
-	return bytes;
-}
-
-cv::Mat ucharToMat(uchar * bytes, int width, int height)
-{
-	cv::Mat image = cv::Mat(height, width, CV_8UC3, bytes).clone(); // make a copy
-	return image;
-}
-
-ushort * matToUshort(cv::Mat image)
-{
-	int size = image.total();
-	ushort * bytes = new ushort[size];  // you will have to delete[] that later
-	std::memcpy(bytes, image.data, size * sizeof(ushort));
-	return bytes;
-}
-
-cv::Mat ushortToMat(ushort * bytes, int width, int height)
-{
-	cv::Mat image = cv::Mat(height, width, CV_16UC1, bytes).clone(); // make a copy
-	return image;
-}
+//uchar * matToUchar(cv::Mat image)
+//{
+//	int size = image.total() * image.elemSize();
+//	uchar * bytes = new uchar[size];  // you will have to delete[] that later
+//	std::memcpy(bytes, image.data, size * sizeof(uchar));
+//	return bytes;
+//}
+//
+//cv::Mat ucharToMat(uchar * bytes, int width, int height)
+//{
+//	cv::Mat image = cv::Mat(height, width, CV_8UC3, bytes).clone(); // make a copy
+//	return image;
+//}
+//
+//ushort * matToUshort(cv::Mat image)
+//{
+//	int size = image.total();
+//	ushort * bytes = new ushort[size];  // you will have to delete[] that later
+//	std::memcpy(bytes, image.data, size * sizeof(ushort));
+//	return bytes;
+//}
+//
+//cv::Mat ushortToMat(ushort * bytes, int width, int height)
+//{
+//	cv::Mat image = cv::Mat(height, width, CV_16UC1, bytes).clone(); // make a copy
+//	return image;
+//}
 
 int main()
 {
@@ -45,23 +45,41 @@ int main()
 	// Create RegisterTCD object
 	RegisterTCD reg(*path, true);
 	// Test conversions mat to pointer
-	uchar* c = matToUchar(c_img);
-	ushort* d = matToUshort(d_img);
-	ushort* t = matToUshort(t_img);
+	uchar* c = reg.matToUchar(c_img);
+	ushort* d = reg.matToUshort(d_img);
+	ushort* t = reg.matToUshort(t_img);
 	// Test conversions pointer to mat
 	cv::Mat cout, dout, tout;
-	cout = ucharToMat(c, 640, 480);
-	dout = ushortToMat(d, 640, 480);
-	tout = ushortToMat(t, 640, 480);
+	reg.ucharToMat(c, 640, 480, cout);
+	reg.ushortToMat(d, 640, 480, dout);
+	reg.ushortToMat(t, 640, 480, tout);
 	// Test update
 	//reg.update(t, c, d);
 	// Test RegisterImages
 	cv::Mat warpDepth, warpImage;
 
-	
+	cv::Mat alpha, colormap, mask, result;
+
+	int im_width;
+	int im_height;
+	bool re = true;
+
+	/*uchar *pwC = nullptr;
+	ushort *pwD = nullptr;*/
+	uchar *pwC = reg.ucharImagePtr();
+	ushort *pwD = reg.ushortImagePtr();
+	/*int a = 4;
+	int * ax = nullptr;
+	ax = &a;*/
 
 
+	reg.update(t, c, d, true, 0.2, 1, im_width, im_height, pwC, pwD);
+	cv::Mat exc, exd;
+	reg.ucharToMat(pwC, im_width, im_height, exc);
+	reg.ushortToMat(pwD, im_width, im_height, exd);
 
+	reg.doColorMap(dout, colormap, 0.2, 1, 0.5, cv::COLORMAP_JET);
+	reg.overlapImages(c_img, colormap, result);
 
 	system("pause");
 

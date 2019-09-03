@@ -1,33 +1,33 @@
 ﻿  Test_lib_register.cpp
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(93): warning C4251: 'RegisterTCD::thermal_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(115): warning C4251: 'RegisterTCD::thermal_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(93): warning C4251: 'RegisterTCD::thermal_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(115): warning C4251: 'RegisterTCD::thermal_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(94): warning C4251: 'RegisterTCD::color_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(116): warning C4251: 'RegisterTCD::color_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(94): warning C4251: 'RegisterTCD::color_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(116): warning C4251: 'RegisterTCD::color_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(95): warning C4251: 'RegisterTCD::R': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(117): warning C4251: 'RegisterTCD::R': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(95): warning C4251: 'RegisterTCD::T': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(117): warning C4251: 'RegisterTCD::T': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(95): warning C4251: 'RegisterTCD::RT': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(117): warning C4251: 'RegisterTCD::RT': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(96): warning C4251: 'RegisterTCD::t_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(118): warning C4251: 'RegisterTCD::t_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(96): warning C4251: 'RegisterTCD::c_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(118): warning C4251: 'RegisterTCD::c_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(96): warning C4251: 'RegisterTCD::d_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(118): warning C4251: 'RegisterTCD::d_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(98): warning C4251: 'RegisterTCD::warpedImage': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(120): warning C4251: 'RegisterTCD::warpedImage': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(98): warning C4251: 'RegisterTCD::warpedDepth': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(120): warning C4251: 'RegisterTCD::warpedDepth': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\test_lib_register\test_lib_register.cpp(11): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\test_lib_register\test_lib_register.cpp(25): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\test_lib_register\test_lib_register.cpp(76): warning C4305: 'argumento': truncamiento de 'double' a 'const float'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\test_lib_register\test_lib_register.cpp(81): warning C4305: 'argumento': truncamiento de 'double' a 'const float'
      Creando biblioteca C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\x64\Release\Test_lib_register.lib y objeto C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\x64\Release\Test_lib_register.exp
   Generando código
-  1 of 34 functions ( 2.9%) were compiled, the rest were copied from previous compilation.
+  1 of 17 functions ( 5.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
