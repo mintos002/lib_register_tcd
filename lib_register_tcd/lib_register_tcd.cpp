@@ -112,7 +112,7 @@ void RegisterTCD::createRT(cv::Mat& R, cv::Mat& T, bool& invert, cv::Mat& RT)
 	}
 }
 
-void RegisterTCD::ushortToMat(const ushort * img, const int& width, const int& height, cv::Mat& out)
+void RegisterTCD::ushortToMat1c(const ushort * img, const int& width, const int& height, cv::Mat& out)
 {
 	ushort* p = new ushort[width * height * sizeof(ushort)];
 	memcpy(p, img, width * height * sizeof(ushort));
@@ -120,12 +120,20 @@ void RegisterTCD::ushortToMat(const ushort * img, const int& width, const int& h
 	out = cv::Mat(height, width, CV_16UC1, p)/*.clone()*/;
 }
 
-void RegisterTCD::ucharToMat(const uchar * img, const int& width, const int& height, cv::Mat& out)
+void RegisterTCD::ucharToMat3c(const uchar * img, const int& width, const int& height, cv::Mat& out)
 {
 	uchar* p = new uchar[width * height * sizeof(uchar) * 3];
 	memcpy(p, img, width * height * sizeof(uchar) * 3);
 	// Given a pointer img, and the size of the image, outputs a cv::Mat(height, width, CV_8UC3) object 
 	out = cv::Mat(height, width, CV_8UC3, p)/*.clone()*/; // make a copy
+}
+
+void RegisterTCD::ucharToMat4c(const uchar * img, const int& width, const int& height, cv::Mat& out)
+{
+	uchar* p = new uchar[width * height * sizeof(uchar) * 4];
+	memcpy(p, img, width * height * sizeof(uchar) * 4);
+	// Given a pointer img, and the size of the image, outputs a cv::Mat(height, width, CV_8UC3) object 
+	out = cv::Mat(height, width, CV_8UC4, p)/*.clone()*/; // make a copy
 }
 
 ushort* RegisterTCD::matToUshort(const cv::Mat& image)
@@ -183,8 +191,9 @@ void RegisterTCD::doColorMap(const cv::Mat& image, cv::Mat& image_out, const flo
 	{
 		double imin, imax;
 		cv::minMaxIdx(image, &imin, &imax);
-		image.convertTo(img, CV_8U, 255 / (imax - imin), -imin);
-		normalize(img, img, 255, 0, cv::NORM_MINMAX);
+		//image.convertTo(img, CV_8U, 255 / (imax - imin), -imin);
+		image.convertTo(img, CV_8U, 1/256.0);
+		//normalize(img, img, 255, 0, cv::NORM_MINMAX);
 
 		// create the inverse mask
 		for (int i = 0; i < img.size().height; i++)
@@ -207,25 +216,36 @@ void RegisterTCD::doColorMap(const cv::Mat& image, cv::Mat& image_out, const flo
 
 	//cv::cvtColor(img, img_g, CV_RGB2GRAY);
 
-	makeAlpha(img, mask, opacity, image_out);
+	makeAlpha(img, mask, opacity, image_out);	
 
 }
 
-void RegisterTCD::overlapImages(const cv::Mat &background, const cv::Mat &foreground, cv::Mat &output, cv::Point2i location, double opacity)
+void RegisterTCD::doColorMap(const ushort* image, uchar* image_out, const int image_width, const int image_height, const float min, const float max, const float opacity, const int cvColormap)
+{
+	cv::Mat img, img_out;
+	ushortToMat1c(image, image_width, image_height, img);
+	doColorMap(img, img_out, min, max, opacity, cvColormap);
+	uchar * pimgage_out = matToUchar(img_out);
+	std::memcpy(image_out, pimgage_out, image_width * image_height * sizeof(uchar) * 4);
+	cv::Mat akan;
+	ucharToMat4c(image_out, image_width, image_height, akan);
+}
+
+void RegisterTCD::overlapImages(const cv::Mat &background, const cv::Mat &foreground, cv::Mat &output, const int ox, const int oy, double opacity)
 {
 	background.copyTo(output);
 
-	// start at the row indicated by location, or at row 0 if location.y is negative.
-	for (int y = std::max(location.y, 0); y < background.rows; ++y) {
-		int fY = y - location.y; // because of the translation
+	// start at the row indicated by location, or at row 0 if oy is negative.
+	for (int y = std::max(oy, 0); y < background.rows; ++y) {
+		int fY = y - oy; // because of the translation
 
 		// we are done of we have processed all rows of the foreground image.
 		if (fY >= foreground.rows)
 			break;
 
-		// start at the column indicated by location, or at column 0 if location.x is negative.
-		for (int x = std::max(location.x, 0); x < background.cols; ++x) {
-			int fX = x - location.x; // because of the translation.
+		// start at the column indicated by location, or at column 0 if ox is negative.
+		for (int x = std::max(ox, 0); x < background.cols; ++x) {
+			int fX = x - ox; // because of the translation.
 
 			// we are done with this row if the column is outside of the foreground image.
 			if (fX >= foreground.cols)
@@ -246,23 +266,38 @@ void RegisterTCD::overlapImages(const cv::Mat &background, const cv::Mat &foregr
 	}
 }
 
-uchar* 
-RegisterTCD::ucharImagePtr()
+void RegisterTCD::overlapImages(const uchar* background, const uchar* foreground, uchar* output, const int image_width, const int image_height, const int ox, const int oy, double opacity)
+{
+	cv::Mat bcg, frg, out;
+	ucharToMat3c(background, image_width, image_height, bcg);
+	ucharToMat4c(foreground, image_width, image_height, frg);
+	overlapImages(bcg, frg, out, ox, oy, opacity);
+	uchar * pout = matToUchar(out);
+	std::memcpy(output, pout, image_width * image_height * sizeof(uchar) * 3);
+	cv::Mat akan;
+	ucharToMat3c(output, image_width, image_height, akan);
+}
+
+uchar* RegisterTCD::uchar3cImagePtr()
 {
 	uchar *ptr = new uchar[color_image_width * color_image_height * sizeof(uchar) * 3];
 	return ptr;
 }
 
-ushort* 
-RegisterTCD::ushortImagePtr()
+uchar* RegisterTCD::uchar4cImagePtr()
+{
+	uchar *ptr = new uchar[color_image_width * color_image_height * sizeof(uchar) * 4];
+	return ptr;
+}
+
+ushort* RegisterTCD::ushort1cImagePtr()
 {
 	ushort *ptr = new ushort[color_image_width * color_image_height * sizeof(ushort)];
 	return ptr;
 }
 
 
-void
-RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img, bool registerImag, const float& temp_min, const float& temp_max, int& width, int& height, uchar* warpedImage, ushort* warpedDepth)
+void RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img, bool registerImag, const float& temp_min, const float& temp_max, int& width, int& height, uchar* warpedImage, ushort* warpedDepth)
 {
 	// Delete possible content from the variables
 	t_frame.release();
@@ -270,9 +305,9 @@ RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img
 	d_frame.release();
 
 	// Read array images and turn them into cv::Mat objects
-	ushortToMat(t_img, thermal_image_width, thermal_image_height, t_frame);
-	ucharToMat(c_img, color_image_width, color_image_height, c_frame);
-	ushortToMat(d_img, color_image_width, color_image_height, d_frame);
+	ushortToMat1c(t_img, thermal_image_width, thermal_image_height, t_frame);
+	ucharToMat3c(c_img, color_image_width, color_image_height, c_frame);
+	ushortToMat1c(d_img, color_image_width, color_image_height, d_frame);
 
 	// Throw error if images are empty
 	if (t_frame.empty() || c_frame.empty() || c_frame.empty())
@@ -283,6 +318,7 @@ RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img
 	// Check if it's possible to register
 	
 	cv::Mat wI, wD;
+	cv::Mat wT;
 	if (RT.empty() && color_cameraMatrix.empty() && thermal_cameraMatrix.empty() && thermal_distCoeff.empty() && registerImag)
 	{
 		errorHandler(ERR_CAN_NOT_REGISTER, "Can't reconstruct useing this constructor.");
@@ -290,6 +326,7 @@ RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img
 	else
 	{
 		registerImages(wI, wD);
+		registerImagesThermalToColor(wT);
 		width = wI.size().width;
 		height = wI.size().height;
 	}
@@ -301,19 +338,14 @@ RegisterTCD::update(const ushort* t_img, const uchar* c_img, const ushort* d_img
 
 	uchar* pwI = matToUchar(wI);
 	ushort* pwD = matToUshort(wD);
-	
-	
-	/*warpedImage = new uchar[width * height * sizeof(uchar) * 3];
-	warpedDepth = new ushort[width * height * sizeof(ushort)];*/
 
 	memcpy(warpedImage, pwI, width * height * sizeof(uchar) * 3);
 	memcpy(warpedDepth, pwD, width * height * sizeof(ushort));
 
-	/*warpedImage = pwI;
-	warpedDepth = pwD;*/
+	
 	cv::Mat x, y;
-	ucharToMat(warpedImage, 640, 480, x);
-	ushortToMat(warpedDepth, 640, 480, y);
+	ucharToMat3c(warpedImage, 640, 480, x);
+	ushortToMat1c(warpedDepth, 640, 480, y);
 
 }
 
@@ -394,6 +426,85 @@ RegisterTCD::registerImages(cv::Mat& out_warpedImage, cv::Mat& out_warpedDepth)
 
 	out_warpedDepth = warpedDepth;
 	out_warpedImage = warpedImage;
+
+}
+
+void
+RegisterTCD::registerImagesThermalToColor(cv::Mat& out_warpedThermal)
+{
+	cv::Mat image = c_frame;
+	cv::Mat depth = d_frame;
+	cv::Mat thermo = t_frame;
+	cv::Size imagePlanec2(thermal_image_width, thermal_image_height);
+	cv::Size imagePlanec1(color_image_width, color_image_height);
+	cv::Mat Rt = RT;
+	cv::Mat Kc1 = color_cameraMatrix;
+	cv::Mat Kc2 = thermal_cameraMatrix;
+	cv::Mat Dc2 = thermal_distCoeff;
+
+	CV_Assert(!image.empty());
+	CV_Assert(image.type() == CV_8UC3);
+
+	CV_Assert(depth.size() == image.size());
+	CV_Assert(depth.type() == CV_16UC1);
+
+	warpedImage.create(imagePlanec2, CV_8UC3);
+	warpedImage = cv::Scalar(0);
+
+	cv::Mat bgr[3], cb, cg, cr;
+	split(image, bgr);
+
+	cb = cv::Mat::zeros(imagePlanec2, CV_8UC1);
+	cg = cv::Mat::zeros(imagePlanec2, CV_8UC1);
+	cr = cv::Mat::zeros(imagePlanec2, CV_8UC1);
+
+	std::vector<cv::Mat> result;
+	result.push_back(cb);
+	result.push_back(cg);
+	result.push_back(cr);
+	
+	warpedDepth.create(imagePlanec2, CV_32FC1);
+	warpedDepth = cv::Scalar(FLT_MAX);
+
+	cv::Mat mask(imagePlanec1, CV_8UC1);
+	mask = cv::Scalar(0);
+
+	warpedThermal.create(imagePlanec1, CV_16UC1);
+	warpedThermal = cv::Scalar(0);
+
+	cv::Mat cloud;
+	cv::rgbd::depthTo3d(depth, Kc1, cloud);
+	cv::Mat cldSplit[3];
+	split(cloud, cldSplit);
+
+	cv::Mat warpedCloud, warpedImagePoints;
+	perspectiveTransform(cloud, warpedCloud, Rt);
+	projectPoints(warpedCloud.reshape(3, 1), cv::Mat(3, 1, CV_32FC1, cv::Scalar(0)), cv::Mat(3, 1, CV_32FC1, cv::Scalar(0)), Kc2, Dc2, warpedImagePoints);
+	warpedImagePoints = warpedImagePoints.reshape(2, cloud.rows);
+	//cv::Rect r(0, 0, imagePlanec2.width, imagePlanec2.height);
+	cv::Rect r(0, 0, imagePlanec2.width, imagePlanec2.height);
+	for (int y = 0; y < cloud.rows; y++)
+	{
+		for (int x = 0; x < cloud.cols; x++)
+		{
+			cv::Point p = warpedImagePoints.at<cv::Point2f>(y, x);
+			if(!isnan(cldSplit[0].at<float>(y, x)))
+			{
+				if (r.contains(p))
+				{
+					warpedThermal.at<ushort>(y, x) = thermo.at<ushort>(p.y, p.x);
+					mask.at<uchar>(y, x) = 255;
+				}
+			}
+			
+		}
+	}
+
+	cv::merge(result, warpedImage);
+	warpedDepth.setTo(std::numeric_limits<float>::quiet_NaN(), warpedDepth > 100000);
+	warpedDepth.convertTo(warpedDepth, CV_16UC1);
+
+	out_warpedThermal = warpedThermal;
 
 }
 

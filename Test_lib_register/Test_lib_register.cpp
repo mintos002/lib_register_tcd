@@ -38,9 +38,13 @@ int main()
 {
 	char path[] = "C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\spaceing24_extrinsics_640_80.xml";
 
-	cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\thermo\\t_2019711561964745974.png", cv::IMREAD_ANYDEPTH);
+	/*cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\thermo\\t_2019711561964745974.png", cv::IMREAD_ANYDEPTH);
 	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\color\\c_2019711561964745974.png", cv::IMREAD_COLOR);
-	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\depth\\d_2019711561964745974.png", cv::IMREAD_ANYDEPTH);
+	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\depth\\d_2019711561964745974.png", cv::IMREAD_ANYDEPTH);*/
+
+	cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\thermo\\t_2019711561968234554.png", cv::IMREAD_ANYDEPTH);
+	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\color\\c_2019711561968234554.png", cv::IMREAD_COLOR);
+	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\depth\\d_2019711561968234554.png", cv::IMREAD_ANYDEPTH);
 
 	// Create RegisterTCD object
 	RegisterTCD reg(*path, true);
@@ -50,9 +54,9 @@ int main()
 	ushort* t = reg.matToUshort(t_img);
 	// Test conversions pointer to mat
 	cv::Mat cout, dout, tout;
-	reg.ucharToMat(c, 640, 480, cout);
-	reg.ushortToMat(d, 640, 480, dout);
-	reg.ushortToMat(t, 640, 480, tout);
+	reg.ucharToMat3c(c, 640, 480, cout);
+	reg.ushortToMat1c(d, 640, 480, dout);
+	reg.ushortToMat1c(t, 640, 480, tout);
 	// Test update
 	//reg.update(t, c, d);
 	// Test RegisterImages
@@ -66,8 +70,8 @@ int main()
 
 	/*uchar *pwC = nullptr;
 	ushort *pwD = nullptr;*/
-	uchar *pwC = reg.ucharImagePtr();
-	ushort *pwD = reg.ushortImagePtr();
+	uchar *pwC = reg.uchar3cImagePtr();
+	ushort *pwD = reg.ushort1cImagePtr();
 	/*int a = 4;
 	int * ax = nullptr;
 	ax = &a;*/
@@ -75,14 +79,21 @@ int main()
 
 	reg.update(t, c, d, true, 0.2, 1, im_width, im_height, pwC, pwD);
 	cv::Mat exc, exd;
-	reg.ucharToMat(pwC, im_width, im_height, exc);
-	reg.ushortToMat(pwD, im_width, im_height, exd);
+	reg.ucharToMat3c(pwC, im_width, im_height, exc);
+	reg.ushortToMat1c(pwD, im_width, im_height, exd);
 
-	reg.doColorMap(dout, colormap, 0.2, 1, 0.5, cv::COLORMAP_JET);
-	reg.overlapImages(c_img, colormap, result);
+	//reg.doColorMap(dout, colormap, 0.2, 1, 0.5, cv::COLORMAP_JET);
+	uchar *pCM = reg.uchar4cImagePtr();
+	reg.doColorMap(t, pCM, im_width, im_height, 0.2, 1, 0.5, cv::COLORMAP_HOT);
+	cv::Mat o, ov;
+	reg.ucharToMat4c(pCM, im_width, im_height, o);
 
+	uchar * overlap = reg.uchar3cImagePtr();
+	reg.overlapImages(pwC, pCM, overlap, im_width, im_height, 0, 0, 1);
+	reg.ucharToMat3c(overlap, im_width, im_height, ov);
+
+	//reg.overlapImages(c_img, colormap, result);
 	system("pause");
-
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
