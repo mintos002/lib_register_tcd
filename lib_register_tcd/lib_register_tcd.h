@@ -78,12 +78,17 @@ public:
 	*   - warpedImage
 	*   - warpedDepth
 	*/
-	void update(const ushort* t_img, const uchar* c_img, const ushort* d_img, bool registerImag, const float& temp_min, const float& temp_max, int& width, int& height, uchar* warpedImage, ushort* warpedDepth);
+	void update(const ushort* t_img, const uchar* c_img, const ushort* d_img, bool registerImag, const float& temp_min, const float& temp_max, int& width, int& height, uchar* warpedImage, ushort* warpedDepth, ushort* warpedThermal, uchar* warpedThermalMask, uchar* warpedThermalCM);
 	
 	/**	@brief
 	*	This function will return a pointer to a 8 bit 3 chanel color image size memory space reserved
 	*/
 	uchar * uchar3cImagePtr();
+
+	/**	@brief
+	*	This function will return a pointer to a 8 bit 1 chanel color image size memory space reserved
+	*/
+	uchar * uchar1cImagePtr();
 
 	/**	@brief
 	*	This function will return a pointer to a 8 bit 4 chanel color image size memory space reserved
@@ -109,7 +114,9 @@ public:
 
 
 	void makeAlpha(const cv::Mat& src, const cv::Mat& mask, const float& opacity, cv::Mat& dst);
-	void doColorMap(const cv::Mat& image, cv::Mat& image_out, const float& min, const float& max, const float& opacity, const int& cvColormap);
+	void doColorMap(const cv::Mat& image, cv::Mat& image_out, bool normalize, const float& min, const float& max, const float& opacity, const int& cvColormap);
+	void doColorMapWithMask(const cv::Mat& image, cv::Mat& msk, cv::Mat& image_out, bool normalize, const float& min, const float& max, const float& opacity, const int& cvColormap);
+
 	void overlapImages(const cv::Mat &background, const cv::Mat &foreground, cv::Mat &output, const int x = 0, const int y = 0, double opacity = 1.0);
 	/**	@brief
 	*	This function will apply a colormap to the single channel image pointed by the pointer.
@@ -125,10 +132,11 @@ public:
 	*                 cv::COLORMAP_HSV = 9,    cv::COLORMAP_PINK = 10,   cv::COLORMAP_HOT = 11,
 	*                 cv::COLORMAP_PARULA = 12.  
 	*/
-	void doColorMap(const ushort* image, uchar* image_out, const int image_width, const int image_height, const float min, const float max, const float opacity, const int cvColormap);
+	void doColorMap(const ushort* image, uchar* image_out, bool normalize, const int image_width, const int image_height, const float min, const float max, const float opacity, const int cvColormap);
 	void overlapImages(const uchar* background, const uchar* foreground, uchar* output, const int image_width, const int image_height, const int x = 0, const int y = 0, double opacity = 1.0);
 
 	void ushortToMat1c(const ushort * img, const int& width, const int& height, cv::Mat& out);
+	void ucharToMat1c(const uchar * img, const int& width, const int& height, cv::Mat& out);
 	void ucharToMat3c(const uchar * img, const int& width, const int& height, cv::Mat& out);
 	void ucharToMat4c(const uchar * img, const int& width, const int& height, cv::Mat& out);
 	ushort* matToUshort(const cv::Mat& image);
@@ -150,11 +158,8 @@ private:
 
 	// Functions
 	void createRT(cv::Mat& R, cv::Mat& T, bool& invert, cv::Mat& RT);
-	
 
-	
-
-	void registerImages(cv::Mat& warpedImage, cv::Mat& warpedDepth);
+	void registerImages(cv::Mat& warpedImage, cv::Mat& warpedDepth, cv::Mat& warpedThermal, cv::Mat& out_thermalMask);
 	void registerImagesThermalToColor(cv::Mat& warpedIThermal);
 	
 

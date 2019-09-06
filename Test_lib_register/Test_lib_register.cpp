@@ -42,9 +42,13 @@ int main()
 	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\color\\c_2019711561964745974.png", cv::IMREAD_COLOR);
 	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_imagesx640_80\\depth\\d_2019711561964745974.png", cv::IMREAD_ANYDEPTH);*/
 
-	cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\thermo\\t_2019711561968234554.png", cv::IMREAD_ANYDEPTH);
-	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\color\\c_2019711561968234554.png", cv::IMREAD_COLOR);
-	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\depth\\d_2019711561968234554.png", cv::IMREAD_ANYDEPTH);
+	/*cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\load\\thermo\\t_2019711561978893955.png", cv::IMREAD_ANYDEPTH);
+	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\load\\color\\c_2019711561978893955.png", cv::IMREAD_COLOR);
+	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\load\\depth\\d_2019711561978893955.png", cv::IMREAD_ANYDEPTH);*/
+
+	cv::Mat t_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\thermo\\t_2019711561968282099.png", cv::IMREAD_ANYDEPTH);
+	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\color\\c_2019711561968282099.png", cv::IMREAD_COLOR);
+	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\depth\\d_2019711561968282099.png", cv::IMREAD_ANYDEPTH);
 
 	// Create RegisterTCD object
 	RegisterTCD reg(*path, true);
@@ -72,25 +76,54 @@ int main()
 	ushort *pwD = nullptr;*/
 	uchar *pwC = reg.uchar3cImagePtr();
 	ushort *pwD = reg.ushort1cImagePtr();
+	ushort *pwT = reg.ushort1cImagePtr();
+	uchar *pwTM = reg.uchar3cImagePtr();
+	uchar *pwTCM = reg.uchar4cImagePtr();
 	/*int a = 4;
 	int * ax = nullptr;
 	ax = &a;*/
 
 
-	reg.update(t, c, d, true, 0.2, 1, im_width, im_height, pwC, pwD);
-	cv::Mat exc, exd;
+	reg.update(t, c, d, true, 0, 1, im_width, im_height, pwC, pwD, pwT, pwTM, pwTCM);
+	cv::Mat exc, exd, ext;
 	reg.ucharToMat3c(pwC, im_width, im_height, exc);
 	reg.ushortToMat1c(pwD, im_width, im_height, exd);
+	reg.ushortToMat1c(pwT, im_width, im_height, ext);
+
+	cv::Mat ovT;
+	uchar * overlapT = reg.uchar3cImagePtr();
+	reg.overlapImages(c, pwTCM, overlapT, im_width, im_height, 0, 0, 0.5);
+	reg.ucharToMat3c(overlapT, im_width, im_height, ovT);
+	cv::Mat d_imgCM, t_imgCM;
+	reg.doColorMap(d_img, d_imgCM, true, 0, 1, 1, cv::COLORMAP_JET);
+	reg.doColorMap(t_img, t_imgCM, false, 0, 1, 1, cv::COLORMAP_JET);
+	
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\color_jetson_no_load.png", c_img);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\depth_jetson_no_load.png", d_img);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\depthCM_jetson_no_load.png", d_imgCM);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\thermo_jetson_no_load.png", t_img);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\thermoCM_jetson_no_load.png", t_imgCM);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\fusion_jetson_no_load.png", ovT);
+
+
+	/*uchar *pCMT = reg.uchar4cImagePtr();
+	reg.doColorMap(pwT, pCMT, im_width, im_height, 0, 1, 0.5, cv::COLORMAP_HOT);
+	cv::Mat oT, ovT;
+	reg.ucharToMat4c(pCMT, im_width, im_height, oT);
+
+	uchar * overlapT = reg.uchar3cImagePtr();
+	reg.overlapImages(c, pCMT, overlapT, im_width, im_height, 0, 0, 1);
+	reg.ucharToMat3c(overlapT, im_width, im_height, ovT);*/
 
 	//reg.doColorMap(dout, colormap, 0.2, 1, 0.5, cv::COLORMAP_JET);
-	uchar *pCM = reg.uchar4cImagePtr();
-	reg.doColorMap(t, pCM, im_width, im_height, 0.2, 1, 0.5, cv::COLORMAP_HOT);
+	/*uchar *pCM = reg.uchar4cImagePtr();
+	reg.doColorMap(t, pCM, im_width, im_height, 0, 1, 0.5, cv::COLORMAP_HOT);
 	cv::Mat o, ov;
 	reg.ucharToMat4c(pCM, im_width, im_height, o);
 
 	uchar * overlap = reg.uchar3cImagePtr();
-	reg.overlapImages(pwC, pCM, overlap, im_width, im_height, 0, 0, 1);
-	reg.ucharToMat3c(overlap, im_width, im_height, ov);
+	reg.overlapImages(pwC, pCM, overlap, im_width, im_height, 0, 0, 0.5);
+	reg.ucharToMat3c(overlap, im_width, im_height, ov);*/
 
 	//reg.overlapImages(c_img, colormap, result);
 	system("pause");
