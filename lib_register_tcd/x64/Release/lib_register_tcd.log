@@ -1,29 +1,29 @@
 ﻿  lib_register_tcd.cpp
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(152): warning C4251: 'RegisterTCD::thermal_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(150): warning C4251: 'RegisterTCD::thermal_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(152): warning C4251: 'RegisterTCD::thermal_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(150): warning C4251: 'RegisterTCD::thermal_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(153): warning C4251: 'RegisterTCD::color_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(151): warning C4251: 'RegisterTCD::color_cameraMatrix': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(153): warning C4251: 'RegisterTCD::color_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(151): warning C4251: 'RegisterTCD::color_distCoeff': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::R': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(152): warning C4251: 'RegisterTCD::R': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::T': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(152): warning C4251: 'RegisterTCD::T': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::RT': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(152): warning C4251: 'RegisterTCD::RT': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(155): warning C4251: 'RegisterTCD::t_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(153): warning C4251: 'RegisterTCD::t_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(155): warning C4251: 'RegisterTCD::c_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(153): warning C4251: 'RegisterTCD::c_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(155): warning C4251: 'RegisterTCD::d_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(153): warning C4251: 'RegisterTCD::d_frame': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(157): warning C4251: 'RegisterTCD::warpedImage': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::warpedImage': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(157): warning C4251: 'RegisterTCD::warpedDepth': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::warpedDepth': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(157): warning C4251: 'RegisterTCD::warpedThermal': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(154): warning C4251: 'RegisterTCD::warpedThermal': class 'cv::Mat' necesita tener una interfaz DLL para que la utilicen los clientes de class 'RegisterTCD'
   c:\users\aljuasin\desktop\captura_tcd\opencv\include\opencv2\core\mat.hpp(801): note: vea la declaración de 'cv::Mat'
 c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(11): warning C4273: 'RegisterTCD::RegisterTCD': vinculación de DLL incoherente
   c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(41): note: vea la definición anterior de '{ctor}'
@@ -34,62 +34,58 @@ c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_regi
 c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(81): warning C4273: 'RegisterTCD::~RegisterTCD': vinculación de DLL incoherente
   c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(66): note: vea la definición anterior de '{dtor}'
 c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(99): warning C4273: 'RegisterTCD::createRT': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(160): note: vea la definición anterior de 'createRT'
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(157): note: vea la definición anterior de 'createRT'
 c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(116): warning C4273: 'RegisterTCD::ushortToMat1c': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(138): note: vea la definición anterior de 'ushortToMat1c'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(124): warning C4273: 'RegisterTCD::ucharToMat1c': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(139): note: vea la definición anterior de 'ucharToMat1c'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(132): warning C4273: 'RegisterTCD::ucharToMat3c': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(140): note: vea la definición anterior de 'ucharToMat3c'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(140): warning C4273: 'RegisterTCD::ucharToMat4c': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(141): note: vea la definición anterior de 'ucharToMat4c'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(148): warning C4273: 'RegisterTCD::matToUshort': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(142): note: vea la definición anterior de 'matToUshort'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(150): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(157): warning C4273: 'RegisterTCD::matToUchar': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(143): note: vea la definición anterior de 'matToUchar'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(159): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(166): warning C4273: 'RegisterTCD::makeAlpha': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(116): note: vea la definición anterior de 'makeAlpha'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(191): warning C4273: 'RegisterTCD::doColorMap': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(117): note: vea la definición anterior de 'doColorMap'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(194): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(195): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(236): warning C4273: 'RegisterTCD::doColorMapWithMask': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(118): note: vea la definición anterior de 'doColorMapWithMask'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(239): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(240): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(284): warning C4273: 'RegisterTCD::doColorMap': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(135): note: vea la definición anterior de 'doColorMap'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(295): warning C4273: 'RegisterTCD::overlapImages': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(120): note: vea la definición anterior de 'overlapImages'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(323): warning C4244: '=': conversión de 'double' a 'uchar'; posible pérdida de datos
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(330): warning C4273: 'RegisterTCD::overlapImages': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(136): note: vea la definición anterior de 'overlapImages'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(342): warning C4273: 'RegisterTCD::uchar3cImagePtr': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(86): note: vea la definición anterior de 'uchar3cImagePtr'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(348): warning C4273: 'RegisterTCD::uchar1cImagePtr': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(91): note: vea la definición anterior de 'uchar1cImagePtr'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(354): warning C4273: 'RegisterTCD::uchar4cImagePtr': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(96): note: vea la definición anterior de 'uchar4cImagePtr'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(360): warning C4273: 'RegisterTCD::ushort1cImagePtr': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(101): note: vea la definición anterior de 'ushort1cImagePtr'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(367): warning C4273: 'RegisterTCD::update': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(136): note: vea la definición anterior de 'ushortToMat1c'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(127): warning C4273: 'RegisterTCD::ucharToMat1c': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(137): note: vea la definición anterior de 'ucharToMat1c'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(138): warning C4273: 'RegisterTCD::ucharToMat3c': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(138): note: vea la definición anterior de 'ucharToMat3c'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(149): warning C4273: 'RegisterTCD::ucharToMat4c': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(139): note: vea la definición anterior de 'ucharToMat4c'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(160): warning C4273: 'RegisterTCD::matToUshort': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(140): note: vea la definición anterior de 'matToUshort'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(162): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(169): warning C4273: 'RegisterTCD::matToUchar': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(141): note: vea la definición anterior de 'matToUchar'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(171): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(178): warning C4273: 'RegisterTCD::makeAlpha': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(114): note: vea la definición anterior de 'makeAlpha'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(203): warning C4273: 'RegisterTCD::doColorMap': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(115): note: vea la definición anterior de 'doColorMap'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(206): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(207): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(248): warning C4273: 'RegisterTCD::doColorMapWithMask': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(116): note: vea la definición anterior de 'doColorMapWithMask'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(251): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(252): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(308): warning C4273: 'RegisterTCD::doColorMap': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(133): note: vea la definición anterior de 'doColorMap'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(325): warning C4273: 'RegisterTCD::overlapImages': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(118): note: vea la definición anterior de 'overlapImages'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(353): warning C4244: '=': conversión de 'double' a 'uchar'; posible pérdida de datos
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(360): warning C4273: 'RegisterTCD::overlapImages': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(134): note: vea la definición anterior de 'overlapImages'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(374): warning C4273: 'RegisterTCD::uchar3cImagePtr': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(88): note: vea la definición anterior de 'uchar3cImagePtr'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(380): warning C4273: 'RegisterTCD::uchar1cImagePtr': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(93): note: vea la definición anterior de 'uchar1cImagePtr'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(386): warning C4273: 'RegisterTCD::uchar4cImagePtr': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(98): note: vea la definición anterior de 'uchar4cImagePtr'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(392): warning C4273: 'RegisterTCD::ushort1cImagePtr': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(103): note: vea la definición anterior de 'ushort1cImagePtr'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(401): warning C4273: 'RegisterTCD::update': vinculación de DLL incoherente
   c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(81): note: vea la definición anterior de 'update'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(520): warning C4273: 'RegisterTCD::registerImages': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(162): note: vea la definición anterior de 'registerImages'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(627): warning C4273: 'RegisterTCD::registerImagesThermalToColor': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(163): note: vea la definición anterior de 'registerImagesThermalToColor'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(706): warning C4273: 'RegisterTCD::showImages': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(111): note: vea la definición anterior de 'showImages'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(712): warning C4273: 'RegisterTCD::refill': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(110): note: vea la definición anterior de 'refill'
-c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(754): warning C4273: 'RegisterTCD::errorHandler': vinculación de DLL incoherente
-  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(166): note: vea la definición anterior de 'errorHandler'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(478): warning C4273: 'RegisterTCD::registerImages': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(159): note: vea la definición anterior de 'registerImages'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(668): warning C4273: 'RegisterTCD::refill': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(112): note: vea la definición anterior de 'refill'
+c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.cpp(710): warning C4273: 'RegisterTCD::errorHandler': vinculación de DLL incoherente
+  c:\users\aljuasin\desktop\captura_tcd\lib_register_tcd\lib_register_tcd\lib_register_tcd.h(161): note: vea la definición anterior de 'errorHandler'
      Creando biblioteca C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\x64\Release\lib_register_tcd.lib y objeto C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\x64\Release\lib_register_tcd.exp
   Generando código
-  10 of 290 functions ( 3.4%) were compiled, the rest were copied from previous compilation.
-    6 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+  0 of 288 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   lib_register_tcd.vcxproj -> C:\Users\aljuasin\Desktop\captura_tcd\lib_register_tcd\x64\Release\lib_register_tcd.dll

@@ -77,18 +77,20 @@ int main()
 	uchar *pwC = reg.uchar3cImagePtr();
 	ushort *pwD = reg.ushort1cImagePtr();
 	ushort *pwT = reg.ushort1cImagePtr();
-	uchar *pwTM = reg.uchar3cImagePtr();
 	uchar *pwTCM = reg.uchar4cImagePtr();
+	uchar *pwTOC = reg.uchar3cImagePtr();
 	/*int a = 4;
 	int * ax = nullptr;
 	ax = &a;*/
 
 
-	reg.update(t, c, d, true, 0, 1, im_width, im_height, pwC, pwD, pwT, pwTM, pwTCM);
-	cv::Mat exc, exd, ext;
+	reg.update(t, c, d, true, 0, 1, 0.5, im_width, im_height, pwC, pwD, pwT, pwTCM, pwTOC);
+	cv::Mat exc, exd, ext, extcm, extoc;
 	reg.ucharToMat3c(pwC, im_width, im_height, exc);
 	reg.ushortToMat1c(pwD, im_width, im_height, exd);
 	reg.ushortToMat1c(pwT, im_width, im_height, ext);
+	reg.ucharToMat4c(pwTCM, im_width, im_height, extcm);
+	reg.ucharToMat3c(pwTOC, im_width, im_height, extoc);
 
 	cv::Mat ovT;
 	uchar * overlapT = reg.uchar3cImagePtr();
@@ -97,13 +99,16 @@ int main()
 	cv::Mat d_imgCM, t_imgCM;
 	reg.doColorMap(d_img, d_imgCM, true, 0, 1, 1, cv::COLORMAP_JET);
 	reg.doColorMap(t_img, t_imgCM, false, 0, 1, 1, cv::COLORMAP_JET);
+
+	uchar * pntr = reg.uchar4cImagePtr();
+	reg.doColorMap(t, pntr, false, im_width, im_height, 0, 1, 1, cv::COLORMAP_JET);
 	
-	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\color_jetson_no_load.png", c_img);
+	/*cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\color_jetson_no_load.png", c_img);
 	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\depth_jetson_no_load.png", d_img);
 	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\depthCM_jetson_no_load.png", d_imgCM);
 	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\thermo_jetson_no_load.png", t_img);
 	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\thermoCM_jetson_no_load.png", t_imgCM);
-	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\fusion_jetson_no_load.png", ovT);
+	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\fusion_jetson_no_load.png", ovT);*/
 
 
 	/*uchar *pCMT = reg.uchar4cImagePtr();
