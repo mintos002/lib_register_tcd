@@ -50,6 +50,8 @@ int main()
 	cv::Mat c_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\color\\c_2019711561968282099.png", cv::IMREAD_COLOR);
 	cv::Mat d_img = cv::imread("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\jetson\\no_load\\depth\\d_2019711561968282099.png", cv::IMREAD_ANYDEPTH);
 
+	
+
 	// Create RegisterTCD object
 	RegisterTCD reg(*path, true);
 	// Test conversions mat to pointer
@@ -61,8 +63,23 @@ int main()
 	reg.ucharToMat3c(c, 640, 480, cout);
 	reg.ushortToMat1c(d, 640, 480, dout);
 	reg.ushortToMat1c(t, 640, 480, tout);
-	// Test update
-	//reg.update(t, c, d);
+
+	// Test read write
+	// RGB
+	uchar* prgb = reg.uchar3cImagePtr();
+	prgb = reg.readRGBimage("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_images_640\\color\\c_20196201561021552305.png");
+	cv::Mat test_1;
+	reg.ucharToMat3c(prgb, 640, 480, test_1);
+	delete prgb; prgb = NULL;
+	// GREY
+	ushort* pgrey = reg.ushort1cImagePtr();
+	pgrey = reg.readGRAYimage("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\_imagenes\\patron\\output_images_640\\thermo\\t_20196201561021552305.png");
+	cv::Mat test_2;
+	reg.ushortToMat1c(pgrey, 640, 480, test_2);
+	delete pgrey; pgrey = NULL;
+
+
+	
 	// Test RegisterImages
 	cv::Mat warpDepth, warpImage;
 
@@ -74,8 +91,8 @@ int main()
 
 	/*uchar *pwC = nullptr;
 	ushort *pwD = nullptr;*/
-	uchar *pwC = reg.uchar3cImagePtr();
-	ushort *pwD = reg.ushort1cImagePtr();
+	/*uchar *pwC = reg.uchar3cImagePtr();
+	ushort *pwD = reg.ushort1cImagePtr();*/
 	ushort *pwT = reg.ushort1cImagePtr();
 	uchar *pwTCM = reg.uchar4cImagePtr();
 	uchar *pwTOC = reg.uchar3cImagePtr();
@@ -83,25 +100,30 @@ int main()
 	int * ax = nullptr;
 	ax = &a;*/
 
-
-	reg.update(t, c, d, true, 0, 1, 0.5, im_width, im_height, pwC, pwD, pwT, pwTCM, pwTOC);
+	// Test update
+	reg.update(t, c, d, true, 0, 1, 0.5, im_width, im_height, /*pwC, pwD,*/ pwT, pwTCM, pwTOC);
 	cv::Mat exc, exd, ext, extcm, extoc;
-	reg.ucharToMat3c(pwC, im_width, im_height, exc);
-	reg.ushortToMat1c(pwD, im_width, im_height, exd);
+	/*reg.ucharToMat3c(pwC, im_width, im_height, exc);
+	reg.ushortToMat1c(pwD, im_width, im_height, exd);*/
 	reg.ushortToMat1c(pwT, im_width, im_height, ext);
 	reg.ucharToMat4c(pwTCM, im_width, im_height, extcm);
 	reg.ucharToMat3c(pwTOC, im_width, im_height, extoc);
 
-	cv::Mat ovT;
+	// Test write
+	reg.writeRGBimage(pwTOC, "testRGB.png", 640, 480);
+	reg.writeRGBAimage(pwTCM, "testRGBA.png", 640, 480);
+	reg.writeGRAYimage(pwT, "testGRAY.png", 640, 480);
+
+	/*cv::Mat ovT;
 	uchar * overlapT = reg.uchar3cImagePtr();
 	reg.overlapImages(c, pwTCM, overlapT, im_width, im_height, 0, 0, 0.5);
 	reg.ucharToMat3c(overlapT, im_width, im_height, ovT);
-	cv::Mat d_imgCM, t_imgCM;
-	reg.doColorMap(d_img, d_imgCM, true, 0, 1, 1, cv::COLORMAP_JET);
+	cv::Mat d_imgCM, t_imgCM;*/
+	/*reg.doColorMap(d_img, d_imgCM, true, 0, 1, 1, cv::COLORMAP_JET);
 	reg.doColorMap(t_img, t_imgCM, false, 0, 1, 1, cv::COLORMAP_JET);
 
 	uchar * pntr = reg.uchar4cImagePtr();
-	reg.doColorMap(t, pntr, false, im_width, im_height, 0, 1, 1, cv::COLORMAP_JET);
+	reg.doColorMap(t, pntr, false, im_width, im_height, 0, 1, 1, cv::COLORMAP_JET);*/
 	
 	/*cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\color_jetson_no_load.png", c_img);
 	cv::imwrite("C:\\Users\\aljuasin\\Desktop\\captura_tcd\\lib_register_tcd\\Demo_register_images\\depth_jetson_no_load.png", d_img);
